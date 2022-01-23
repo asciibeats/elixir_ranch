@@ -41,6 +41,7 @@ Or, if you like to use [GenServer](https://hexdocs.pm/elixir/GenServer.html):
 ```elixir
 defmodule ElixirRanch.Protocols.EchoServer do
   use GenServer
+
   @behaviour :ranch_protocol
   @timeout 5000
 
@@ -58,8 +59,8 @@ defmodule ElixirRanch.Protocols.EchoServer do
 
   @impl true
   def handle_info({:tcp, socket, data}, {socket, transport} = state) do
-    transport.send(socket, data)
-    transport.setopts(socket, active: :once)
+    :ok = transport.send(socket, data)
+    :ok = transport.setopts(socket, [{:active, :once}])
     {:noreply, state, @timeout}
   end
 
