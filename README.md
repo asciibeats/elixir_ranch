@@ -29,10 +29,10 @@ defmodule ElixirRanch.Protocols.Echo do
   defp loop(socket, transport) do
     case transport.recv(socket, 0, @timeout) do
       {:ok, data} ->
-        transport.send(socket, data)
+        :ok = transport.send(socket, data)
         loop(socket, transport)
       _ ->
-        :ok = transport.close(socket)
+        transport.close(socket)
     end
   end
 end
