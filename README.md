@@ -88,7 +88,7 @@ defmodule ElixirRanch.Listeners.EchoServer do
   end
 end
 ```
-Then I [embedded](https://ninenines.eu/docs/en/ranch/2.1/guide/embedded/) both listeners into a supervision tree:
+Then I [embedded](https://ninenines.eu/docs/en/ranch/2.1/guide/embedded/) both listeners into a [supervision tree](https://hexdocs.pm/elixir/1.12/Supervisor.html):
 ```elixir
 defmodule ElixirRanch.ListenerSup do
   use Supervisor
