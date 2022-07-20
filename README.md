@@ -6,7 +6,7 @@ Add [Ranch](https://ninenines.eu/docs/en/ranch/2.1/guide/) to the list of depend
 ```elixir
 defp deps do
   [
-    {:ranch, "~> 2.1.0"}
+    {:ranch, "~> 2.1"}
   ]
 end
 ```
@@ -53,14 +53,14 @@ defmodule ElixirRanch.Protocols.EchoServer do
   @impl true
   def init({ref, transport, _opts}) do
     {:ok, socket} = :ranch.handshake(ref)
-    :ok = transport.setopts(socket, [active: :once])
+    :ok = transport.setopts(socket, active: :once)
     :gen_server.enter_loop(__MODULE__, [], {socket, transport}, @timeout)
   end
 
   @impl true
   def handle_info({:tcp, socket, data}, {socket, transport} = state) do
     :ok = transport.send(socket, data)
-    :ok = transport.setopts(socket, [active: :once])
+    :ok = transport.setopts(socket, active: :once)
     {:noreply, state, @timeout}
   end
 
