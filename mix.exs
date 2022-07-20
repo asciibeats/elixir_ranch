@@ -22,7 +22,7 @@ defmodule ElixirRanch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ranch, "~> 2.1.0"}
+      {:ranch, "~> 2.1"}
     ]
   end
 end

@@ -3,12 +3,12 @@ defmodule ElixirRanch.Protocols.Echo do
   @timeout 5000
 
   def start_link(ref, transport, opts) do
-	  {:ok, spawn_link(__MODULE__, :init, [ref, transport, opts])}
+    {:ok, spawn_link(__MODULE__, :init, [ref, transport, opts])}
   end
 
   def init(ref, transport, _opts) do
     {:ok, socket} = :ranch.handshake(ref)
-	  loop(socket, transport)
+    loop(socket, transport)
   end
 
   defp loop(socket, transport) do
@@ -16,6 +16,7 @@ defmodule ElixirRanch.Protocols.Echo do
       {:ok, data} ->
         :ok = transport.send(socket, data)
         loop(socket, transport)
+
       _ ->
         transport.close(socket)
     end
