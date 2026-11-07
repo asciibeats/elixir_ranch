@@ -1,8 +1,8 @@
 # A guide on how to use Ranch with Elixir
-Since the top search results where outdated and generally a bit unsatisfactory to me, here is my example based on [the official Ranch guide for Erlang](https://ninenines.eu/docs/en/ranch/2.1/guide/).
+Since the top search results where outdated and generally a bit unsatisfactory to me, here is my example based on [the official Ranch guide for Erlang](https://ninenines.eu/docs/en/ranch/2.3/guide/).
 
 ## Configuration
-Add [Ranch](https://ninenines.eu/docs/en/ranch/2.1/guide/) to the list of dependencies in your mix.exs:
+Add [Ranch](https://ninenines.eu/docs/en/ranch/2.3/guide/) to the list of dependencies in your mix.exs:
 ```elixir
 defp deps do
   [
@@ -10,7 +10,7 @@ defp deps do
   ]
 end
 ```
-## [Protocols](https://ninenines.eu/docs/en/ranch/2.1/guide/protocols/)
+## [Protocols](https://ninenines.eu/docs/en/ranch/2.3/guide/protocols/)
 In accordance with the official guide, I created a simple echo server, which just responds with the message one sends to it:
 ```elixir
 defmodule ElixirRanch.Protocols.Echo do
@@ -71,7 +71,7 @@ defmodule ElixirRanch.Protocols.EchoServer do
   end
 end
 ```
-## [Listeners](https://ninenines.eu/docs/en/ranch/2.1/guide/listeners/)
+## [Listeners](https://ninenines.eu/docs/en/ranch/2.3/guide/listeners/)
 For clarity I encapsulated both listeners in a module:
 ```elixir
 defmodule ElixirRanch.Listeners.Echo do
@@ -88,7 +88,7 @@ defmodule ElixirRanch.Listeners.EchoServer do
   end
 end
 ```
-Then I [embedded](https://ninenines.eu/docs/en/ranch/2.1/guide/embedded/) both listeners into a [supervision tree](https://hexdocs.pm/elixir/1.12/Supervisor.html):
+Then I [embedded](https://ninenines.eu/docs/en/ranch/2.3/guide/embedded/) both listeners into a [supervision tree](https://hexdocs.pm/elixir/Supervisor.html):
 ```elixir
 defmodule ElixirRanch.ListenerSup do
   use Supervisor
