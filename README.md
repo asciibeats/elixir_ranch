@@ -6,7 +6,7 @@ Add [Ranch](https://ninenines.eu/docs/en/ranch/2.3/guide/) to the list of depend
 ```elixir
 defp deps do
   [
-    {:ranch, "~> 2.1"}
+    {:ranch, "~> 2.3"}
   ]
 end
 ```
@@ -145,6 +145,10 @@ mix run --no-halt
 Connect to it:
 ```
 telnet localhost 5555
+```
+Or on mac:
+```
+nc localhost 5555
 ```
 Type something, press ENTER and the server should respond with the same message. Wait five seconds for the connection to time out. Change the port to 5556 to try the protocol using GenServer. It should do the same.
 
